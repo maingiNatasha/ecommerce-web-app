@@ -1,0 +1,171 @@
+* {
+box-sizing: border-box;
+}
+
+@media (max-width: 575px) {
+    .navbar-brand {
+        font-size: 13px;
+    }
+
+    .dropdown-item, #usernamePlaceholder {
+        font-size: 13px;
+    }
+
+    #right-side{
+        margin-right: 2px;
+        padding-right: 2px;
+    }
+
+    #offcanvasNavbar {
+        padding: 10px;
+    }
+
+    .offcanvas{
+        font-size: 15px;
+    }
+
+    .offcanvas-title {
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 576px) {
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+    .dropdown-item, #usernamePlaceholder {
+        font-size: 14px;
+    }
+
+    #right-side{
+        margin-right: 5px;
+        padding-right: 5px;
+    }
+
+    #offcanvasNavbar {
+        padding: 10px;
+    }
+
+    .offcanvas-title {
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        font-size: 15px; /* You can adjust the font size as needed */
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .dropdown-item, #usernamePlaceholder {
+        font-size: 15px;
+    }
+
+    #search form {
+        width: 200px;
+        font-size: 15px;
+        height: 35px;
+    }
+
+    #search button{
+        width: 100px;
+        font-size: 15px;
+    }
+
+    #offcanvasNavbar{
+        padding: 20px;
+    }
+
+    .navbar-toggler {
+        font-size: 20px; /* You can adjust the font size as needed */
+    }
+
+}
+
+@media (min-width: 992px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .dropdown-item, #usernamePlaceholder {
+        font-size: 17px;
+    }
+
+    #search form {
+        width: 350px;
+        font-size: 18px;
+        height: 40px;
+    }
+
+    #search button{
+        font-size: 17px;
+    }
+
+    #right-side{
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+
+    .offcanvas{
+        font-size: 17px;
+    }
+
+    #nav-icon, #dropdown-icon{
+        font-size: 20px;
+    }
+
+    #offcanvasNavbar{
+        padding: 20px;
+    }
+
+    .navbar-toggler {
+        font-size: 20px;
+    }
+}
+
+.navbar-brand, .offcanvas-title{
+    font-weight: bolder;
+}
+
+.navbar{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ABC7E3;
+}
+
+.offcanvas,.dropdown-menu{
+    background-color: #ABC7E3;
+}
+
+.dropdown-item:hover, .nav-link:hover{
+    background-color: #ABC7E3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.navbar-brand{
+    margin-left: 5px;
+}
+
+#nav-icon{
+    margin-right: 10px;
+}
+
+#dropdown-icon{
+    margin-right: 10px;
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    padding: 10px;
+}

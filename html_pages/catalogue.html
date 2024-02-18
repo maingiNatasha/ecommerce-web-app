@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>Catalogue</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="../css_styles/catalogue.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://kit.fontawesome.com/a31e67b529.js" crossorigin="anonymous"></script>
+
+        <!--Script to include the navbar-->
+        <script src="../javascript/nav.js"></script>
+
+		<!--Script to handle response message-->
+		<script src="../javascript/response_toast.js"></script>
+
+        <!--Script to handle pagination-->
+		<script src="../javascript/pagination.js"></script>
+
+    </head>
+
+    <body id="catalogue-body">
+        <!-- Navbar -->
+        <nav class="navbar navbar-custom">
+            <!-- Navbar content goes here -->
+        </nav>
+
+        <div class="container-fluid" id="catalogue-container">
+            <div class="row" id="container-row">
+                <div class="col-4 col-md-3 col-lg-2" id="tab-column">
+                    <!-- Vertical tab navigation -->
+                    <h3 id="categories-label"><b>Categories</b></h3><hr>
+
+                    <ul class="nav flex-column" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="all-tab" data-category="all" data-bs-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All Items</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <h4><a class="nav-link" id="clothes-tab" data-category="clothes" data-bs-toggle="tab" href="#clothes" role="tab" aria-controls="clothes" aria-selected="false">Clothes (All)</a></h4>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="tops-tab" data-category="tops" data-bs-toggle="tab" href="#tops" role="tab" aria-controls="tops" aria-selected="false">Tops</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="t-shirts-tab" data-category="t-shirts" data-bs-toggle="tab" href="#t-shirts" role="tab" aria-controls="t-shirts" aria-selected="false">T-Shirts</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="shirts-tab" data-category="shirts" data-bs-toggle="tab" href="#shirts" role="tab" aria-controls="shirts" aria-selected="false">Shirts</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="bottoms-tab" data-category="bottoms" data-bs-toggle="tab" href="#bottoms" role="tab" aria-controls="bottoms" aria-selected="false">Bottoms</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="trousers-tab" data-category="trousers" data-bs-toggle="tab" href="#trousers" role="tab" aria-controls="trousers" aria-selected="false">Trousers</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="shorts-tab" data-category="shorts"data-bs-toggle="tab" href="#shorts" role="tab" aria-controls="shorts" aria-selected="false">Shorts</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="outfits-tab" data-category="outfits" data-bs-toggle="tab" href="#outfits" role="tab" aria-controls="outfits" aria-selected="false">Outfit Sets</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <h4><a class="nav-link" id="shoes-tab" data-category="shoes" data-bs-toggle="tab" href="#shoes" role="tab" aria-controls="shoes" aria-selected="false">Shoes (All)</a></h4>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="sneakers-tab" data-category="sneakers" data-bs-toggle="tab" href="#sneakers" role="tab" aria-controls="sneakers" aria-selected="false">Sneakers</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="heels-tab" data-category="heels" data-bs-toggle="tab" href="#heels" role="tab" aria-controls="heels" aria-selected="false">Heels</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="boots-tab" data-category="boots" data-bs-toggle="tab" href="#boots" role="tab" aria-controls="boots" aria-selected="false">Boots</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-8 col-md-9 col-lg-10" id="content-column">
+                    <!-- Tab content container -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="all" role="tabpanel" aria-labelledby="all-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="clothes" role="tabpanel" aria-labelledby="clothes-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tops" role="tabpanel" aria-labelledby="tops-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="t-shirts" role="tabpanel" aria-labelledby="t-shirts-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="shirts" role="tabpanel" aria-labelledby="shirts-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="bottoms" role="tabpanel" aria-labelledby="bottoms" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="trousers" role="tabpanel" aria-labelledby="trousers-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="shorts" role="tabpanel" aria-labelledby="shorts-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="outfits" role="tabpanel" aria-labelledby="outfits-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="shoes" role="tabpanel" aria-labelledby="shoes-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="sneakers" role="tabpanel" aria-labelledby="sneakers-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="heels" role="tabpanel" aria-labelledby="heels-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="boots" role="tabpanel" aria-labelledby="boots-tab" tabindex="0">
+                            <div class="container mb-4">
+                                <div class="row g-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav aria-label="Page navigation example" id="pagination-nav">
+                <ul class="pagination justify-content-center mt-3">
+                    <li class="page-item" id="previous-button">
+                        <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <!-- Page numbers dynamically generated here -->
+                    <li class="page-item" id="next-button">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="toast-container" class="position-fixed top-0 end-0">
+            <div id="toast-alert" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+					<div class="toast-body">
+						<!--Message displayed here-->
+					</div>
+					<button type="button" class="btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                // Function to load items based on the selected category
+                function loadItems(category) {
+                    var tabContentId = '#' + category;
+                    // Send an AJAX request to your PHP script with the selected category
+                    $.ajax({
+                        url: '../php_scripts/load_items.php',
+                        method: 'POST',
+                        data: { category: category },
+                        success: function (response) {
+
+                            // Update the content of the tab's content section
+                            $(tabContentId).find('.row.g-3').html(response);
+
+                            // Update active tab
+                            setActiveTab(category);
+
+                            // Handle what happens when a card is clicked
+                            // Select all components with the card class
+                            var cards = document.querySelectorAll(tabContentId + ' .card');
+                            var cardContainers = document.querySelectorAll(tabContentId + ' #card-col-container');
+
+                            // Add an event listener for each card to handle the click event
+                            cards.forEach(function(card) {
+                                // Call function to handle the click event for an item card
+                               itemCardClick(card);
+                            });
+
+                            // Function to handle pagination
+                            handlePagination(cardContainers);
+
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log('AJAX Error:', textStatus, errorThrown);
+                        }
+                    });
+                }
+
+                // Function to update the active tab
+                function setActiveTab(category) {
+                    // Remove the "active-tab" class from all tab links
+                    $('ul.nav.flex-column li.nav-item a.nav-link').removeClass('active-tab');
+
+                    // Add the "active-tab" class to the selected category's tab
+                    $('#' + category + '-tab').addClass('active-tab');
+                    console.log("active-tab", category);
+                }
+
+                // Function to initialize Bootstrap tabs (focuses on setting up the behavior of the tabs and updating the URL)
+                function initializeTabs() {
+                    $('#myTab a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                        var targetTab = e.target.getAttribute("href").replace("#", "");
+                        window.history.pushState(null, null, 'catalogue.html?category=' + targetTab);
+                    });
+                }
+
+                // Function to handle tab click events
+                function handleTabClick() {
+                    $('ul.nav.flex-column li.nav-item a.nav-link').on('click', function (e) {
+                        e.preventDefault();
+                        // Update the URL with the selected category
+                        var category = $(this).data('category');
+                        window.history.pushState(null, null, 'catalogue.html?category=' + category);
+                        loadItems(category);
+                    });
+                }
+
+                // Function to initialize the tab content (Initializes content on load and reload)
+                function initializeTabContent() {
+                    // Read the selected category from the URL parameter
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const selectedCategory = urlParams.get('category');
+
+                    // Initialize the tab content with the selected category or 'all' if not specified
+                    const defaultCategory = selectedCategory || 'all';
+
+                    // Trigger the tab selection based on the URL parameter
+                    $('#myTab a[data-category="' + defaultCategory + '"]').tab('show');
+
+                    // Initialize the tab content with the selected category
+                    loadItems(defaultCategory);
+
+                }
+
+                // Function to handle the click events for an item card
+                function itemCardClick(card) {
+
+                    // Get Item Id and Item Name
+                    const itemId = card.getAttribute('data-item');
+                    const itemName = card.getAttribute('data-item-name');
+
+                    // Handle card click
+                    card.addEventListener('click', function(event) {
+                        event.preventDefault();
+
+                        // Construct the product information page URL by adding the item parameter
+                        const productInfoURL = `product_info.html?item_id=${itemId}&&item_name=${itemName}`;
+
+                        // Redirect to the product information page
+                        window.location.href = productInfoURL;
+                    });
+
+                    const wishButton = card.querySelector("#wish-button");
+                    const cartButton = card.querySelector("#cart-button");
+
+                    // Retrieve image source
+                    var image = card.querySelector("#card-col-container img").getAttribute("src");
+
+                    // Retrieve item price
+                    var itemPriceText = card.querySelector("#item-price").textContent;
+                    // Match one or more digits
+                    var priceMatch = itemPriceText.match(/\d+/);
+                    // Retrieve the price digit
+                    var itemPrice = priceMatch[0];
+
+                    // Handle wishlist button click
+                    wishButton.addEventListener('click', function(event) {
+                        event.preventDefault();
+
+                        // Set default quantity as 1
+                        var defaultQuantity = 1;
+                        var quantity = defaultQuantity;
+
+                        handleWishListButtonClick(itemId, itemName, itemPrice, quantity, image);
+
+                        event.stopPropagation();
+                    });
+
+                    // Handle cart button click
+                    cartButton.addEventListener('click', function(event) {
+                        event.preventDefault();
+
+                        // Set default quantity as 1
+                        var defaultQuantity = 1;
+                        var quantity = defaultQuantity;
+
+                        handleCartButtonClick(itemId, itemName, itemPrice, quantity, image);
+
+                        event.stopPropagation();
+                    });
+
+                }
+
+                // Function to handle wish list button click
+				function handleWishListButtonClick(itemId, itemName, itemPrice, quantity, image) {
+					$.ajax({
+						url: '../php_scripts/add_to_wishlist.php',
+						method: 'POST',
+						data: {
+							itemId : itemId,
+							itemName : itemName,
+                            itemPrice : itemPrice,
+							quantity : quantity,
+                            image : image,
+						},
+						success: function (response) {
+							handleResponse(response);
+						},
+						error: function (jqXHR, textStatus, errorThrown) {
+                            console.log('AJAX Error:', textStatus, errorThrown);
+                        }
+					});
+				}
+
+				// Function to handle cart button click
+				function handleCartButtonClick(itemId, itemName, itemPrice, quantity, image) {
+					$.ajax({
+						url: '../php_scripts/add_to_cart.php',
+						method: 'POST',
+						data: {
+							itemId : itemId,
+							itemName : itemName,
+                            itemPrice : itemPrice,
+							quantity : quantity,
+                            image : image,
+						},
+						success: function (response) {
+							handleResponse(response);
+						},
+						error: function (jqXHR, textStatus, errorThrown) {
+                            console.log('AJAX Error:', textStatus, errorThrown);
+                        }
+					});
+
+				}
+
+                // Call the functions to set up the page
+                initializeTabs();
+                handleTabClick();
+                initializeTabContent();
+            });
+
+        </script>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    </body>
+
+</html>

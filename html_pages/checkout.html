@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<title>Checkout</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS v5.2.1 -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="../css_styles/checkout.css">
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://kit.fontawesome.com/a31e67b529.js" crossorigin="anonymous"></script>
+
+		<!--Script to include the navbar-->
+		<script src="../javascript/nav.js"></script>
+
+	</head>
+
+	<body id="checkout-body">
+		<nav class="navbar navbar-custom">
+            <!-- Navbar content goes here -->
+        </nav>
+
+		<div class="container-fluid mt-5 mb-5" id="checkout-container">
+			<div class="row">
+				<div class="col-4 col-md-3" id="tab-column">
+                    <!-- Vertical tab navigation -->
+
+                    <ul class="nav flex-column" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active-tab" id="order-summary-tab" data-bs-toggle="tab" href="#order-summary" role="tab" aria-controls="order-summary" aria-selected="true">1. Order Summary</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="customer-info-tab" data-bs-toggle="tab" href="#customer-info" role="tab" aria-controls="customer-info" aria-selected="false">2. Customer Information</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link disabled" id="delivery-tab" data-bs-toggle="tab" href="#delivery" role="tab" aria-controls="delivery" aria-selected="false">3. Delivery Options</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link disabled" id="payment-tab" data-bs-toggle="tab" href="#payment" role="tab" aria-controls="payment" aria-selected="false">4. Payment Methods</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link disabled" id="confirm-order-tab" data-bs-toggle="tab" href="#confirm-order" role="tab" aria-controls="confirm-order" aria-selected="false">5. Confirm Order</a>
+                        </li>
+                    </ul>
+                </div>
+
+				<div class="col-8 col-md-9" id="content-column">
+                    <!-- Tab content container -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="order-summary" role="tabpanel" aria-labelledby="order-summary-tab" tabindex="0">
+							<h4><b>Order Summary</b></h4>
+							<div class="info-container mt-3 p-2" id="order-summary-div">
+								<p>
+									Current order summary with delivery fee excluded:
+								</p>
+								<p>
+									<span><b>Items in cart: </b></span><span class="custom-span" id="cart-count">n/a</span><br>
+								</p>
+								<p>
+									<span><b>Discount: </b></span><span class="custom-span" id="discount">n/a</span><br>
+								</p>
+								<p>
+									<span><b>Delivery Fee: </b></span><span class="custom-span" id="delivery-fee">n/a</span><br>
+								</p>
+								<p>
+									<span><b>Sub-total: </b></span><span class="custom-span" id="sub-total">n/a</span><br>
+								</p>
+							</div>
+                        </div>
+                        <div class="tab-pane" id="customer-info" role="tabpanel" aria-labelledby="customer-info-tab" tabindex="0">
+							<h4><b>Customer Address and Information</b></h4>
+							<div class="info-container mt-2 p-2" id="customer-info-div">
+								<form id="customer-info-form">
+									<div class="row mb-3">
+										<label for="first-name" class="col-sm-4 col-md-5 col-lg-6 col-form-label">First name</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="first-name" placeholder="First name" required autocomplete="given-name">
+											<span id="name-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="second-name" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Second name</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="second-name" placeholder="Second name" required autocomplete="family-name">
+											<span id="name-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="email" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Email</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="email" class="form-control" id="email" placeholder="Email Address" required autocomplete="email">
+											<span id="email-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="phone-number" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Phone number</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="phone-number" placeholder="Phone-number" required autocomplete="tel">
+											<span id="phone-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="other-phone-number" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Additional phone number</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="other-phone-number" placeholder="Additional phone number" required autocomplete="tel">
+											<span id="phone-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="home-address" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Home address</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="home-address" placeholder="Primary Home Address" required autocomplete="address-line1">
+											<span id="adddress-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="additional-address-info" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Additional home address information</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="additional-address-info" placeholder="Additional information" required>
+											<span id="adddress-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="region" class="col-sm-4 col-md-5 col-lg-6 col-form-label">Region/County</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="region" placeholder="Region" required>
+											<span id="region-error" class="error-message"></span>
+										</div>
+									</div>
+									<div class="row mb-3">
+										<label for="city" class="col-sm-4 col-md-5 col-lg-6 col-form-label">City</label>
+										<div class="col-sm-8 col-md-7 col-lg-6">
+											<input type="text" class="form-control" id="city" placeholder="City" required>
+											<span id="city-error" class="error-message"></span>
+										</div>
+									</div>
+									<div id="button-container">
+										<button type="submit" class="btn custom-btn" id="save-info-btn">Save Info and Continue</button>
+									</div>
+								</form>
+							</div>
+                        </div>
+                        <div class="tab-pane" id="delivery" role="tabpanel" aria-labelledby="delivery-tab" tabindex="0">
+							<h4><b>Delivery Details</b></h4>
+							<div class="info-container mt-2 p-2" id="delivery-info-div">
+								<p>
+									Select a delivery option that is appropriate for you: <br>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="delivery-option" id="door-delivery" value="Door delivery" required>
+										<label class="form-check-label" for="door-delivery">Door delivery</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="delivery-option" id="pick-up-delivery" value="Pick-up station" required>
+										<label class="form-check-label" for="pick-up-delivery">Pick-up Station</label>
+									</div>
+									<span id="delivery-option-error" class="error-message"></span>
+								</p>
+								<p>
+									An e-mail or message will be sent to you shortly after confirming your order so that you can select your preferred pick-up station
+								</p>
+								<div id="button-container">
+									<button type="submit" class="btn custom-btn" id="save-delivery-option-btn">Save Info and Continue</button>
+								</div>
+							</div>
+                        </div>
+                        <div class="tab-pane" id="payment" role="tabpanel" aria-labelledby="payment-tab" tabindex="0">
+							<h4><b>Payment Details</b></h4>
+							<div class="info-container mt-2 p-2" id="payment-details-div">
+								<p>
+									Select a payment method that is appropriate for you: <br>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="payment-option" id="pay-now" value="Pay now" required>
+										<label class="form-check-label" for="pay-now">Pay now</label><br>
+										<small class="mb-3">We only accept M-pesa payments for now</small>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="payment-option" id="pay-on-delivery" value="Pay on delivery" required>
+										<label class="form-check-label" for="pay-on-delivery">Pay on delivery</label>
+									</div>
+									<span id="payment-option-error" class="error-message"></span>
+								</p>
+								<div id="button-container">
+									<button type="submit" class="btn custom-btn" id="save-payment-option-btn">Save Info and continue</button>
+								</div>
+							</div>
+                        </div>
+                        <div class="tab-pane" id="confirm-order" role="tabpanel" aria-labelledby="confirm-order-tab" tabindex="0">
+							<h4><b>Confirm Order</b></h4>
+							<div class="info-container mt-2 p-1" id="confirm-order-info">
+								<h5><b>Customer Information</b></h5><hr>
+                                <p>
+                                    <span><b>Name: </b></span><span id="customer-name"></span><br>
+                                    <span><b>Email: </b></span><span id="customer-email"></span><br>
+                                    <span><b>Phone number: </b></span><span id="customer-phone-number"></span><br>
+                                    <span><b>Additional phone number: </b></span><span id="customer-additional-number"></span><br>
+                                    <span><b>Home Address: </b></span><span id="customer-home-address"></span><br>
+                                    <span><b>Additional address information: </b></span><span id="customer-additional-address-info"></span><br>
+                                    <span><b>Region/county: </b></span><span id="customer-region"></span><br>
+                                    <span><b>City: </b></span><span id="customer-city"></span><br>
+                                </p>
+								<h5 class="mt-5"><b>Delivery Option</b></h5><hr>
+                                <p>
+                                    <span><b>Preferred delivery option: </b></span><span id="delivery-option"></span><br>
+                                    <span><b>Delivery Fee: </b></span><span id="delivery-fees">n/a</span>
+                                </p>
+								<h5 class="mt-5"><b>Payment Method</b></h5><hr>
+                                <p>
+                                    <span><b>Preferred payment method: </b></span><span id="payment-method"></span>
+                                </p>
+								<h5 class="mt-5"><b>Order Summary</b></h5><hr>
+								<p>
+									<span><b>Items in cart: </b></span><span id="total-items"></span><br>
+									<span><b>Items Sub-total: </b></span><span id="items-sub-total"></span><br>
+									<span><b>Delivery Fee: </b></span><span id="total-delivery-fee"></span><br>
+									<span><b>Total: </b></span><span id="total-price"></span><br>
+								</p>
+								<div id="button-container">
+									<button class="btn custom-btn" type="button" id="confirm-order-btn">Confirm Order</button>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				function updateOrderSummary(){
+					$.ajax({
+						url: '../php_scripts/load_cart.php',
+						method: 'GET',
+						dataType: 'json',
+						success: function(response) {
+							let itemCount = document.getElementById('cart-count');
+							let subTotal = document.getElementById('sub-total');
+
+							itemCount.textContent = response.totalItemCount;
+							subTotal.textContent = `Ksh ${response.totalCost}`;
+
+							let totalItems = response.totalItemCount;
+							let itemSubTotal = response.totalCost;
+
+							localStorage.setItem('orderSummary', JSON.stringify({totalItems, itemSubTotal}));
+						}
+					});
+				}
+
+				function tabSwitch(){
+					// Get all tabs
+					const tabs = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+					tabs.forEach(function(tab) {
+						tab.addEventListener("click", function(event) {
+							event.preventDefault();
+
+							// Get target tab & its content id
+							const targetTab = event.target;
+							const targetTabId = targetTab.getAttribute("href")
+
+							// Hide all tab panes
+							const tabPanes = document.querySelectorAll(".tab-pane");
+							tabPanes.forEach(function(tabPane) {
+								tabPane.classList.remove("active");
+							});
+
+							// Show target pane
+							const targetPane = document.querySelector(targetTabId);
+							targetPane.classList.add("active");
+
+							// Remove active from all tabs
+							tabs.forEach(function(tab) {
+								tab.classList.remove("active-tab");
+							});
+
+							// Add active to target tab
+							targetTab.classList.add("active-tab");
+
+							// Retrieve tab information
+							retrieveTabInfo(targetTabId);
+						});
+					});
+				}
+
+				// Function to retrieve tab information and store it in local storage
+				function retrieveTabInfo(targetTabId) {
+					if(targetTabId === "#customer-info") {
+						console.log("Customer Info condition");
+						const saveInfoBtn = document.getElementById("save-info-btn");
+
+						saveInfoBtn.addEventListener("click", function(event) {
+							console.log("Customer Info button clicked");
+							// Prevent form submission
+							event.preventDefault();
+
+							// If validateInputs === true, retrieve the information
+							if(validateInputs()) {
+								// Retrieve Customer Info
+								let firstName = document.getElementById("first-name").value;
+								let secondName = document.getElementById("second-name").value;
+								let email = document.getElementById("email").value;
+								let phoneNumber = document.getElementById("phone-number").value;
+								let additionalNumber = document.getElementById("other-phone-number").value;
+								let homeAddress = document.getElementById("home-address").value;
+								let additionalAddressInfo = document.getElementById("additional-address-info").value;
+								let region = document.getElementById("region").value;
+								let city = document.getElementById("city").value;
+
+								// Save in local storage
+								localStorage.setItem('customerInfo', JSON.stringify({firstName, secondName, email, phoneNumber, additionalNumber, homeAddress, additionalAddressInfo, region, city}));
+								updateValues();
+
+								// Continue to next tab
+								nextTab();
+							}
+
+						}, {once : true});
+					}
+
+					else if (targetTabId === "#delivery") {
+						console.log("Delivery condition");
+						const saveDeliveryOptionBtn = document.getElementById("save-delivery-option-btn");
+
+						saveDeliveryOptionBtn.addEventListener("click", function(event) {
+							console.log("Delivery button clicked");
+							event.preventDefault();
+
+							let tabId = targetTabId.replace("#", "");
+							console.log(validateRadioInputs(tabId));
+
+							if(validateRadioInputs(tabId)) {
+								const doorDeliveryRadio = document.getElementById("door-delivery");
+								const pickupDeliveryRadio = document.getElementById("pick-up-delivery");
+
+								let deliveryFee;
+								let deliveryOption;
+
+								// Set delivery option to the value of the checked radio button
+								if(doorDeliveryRadio.checked){
+									deliveryOption = doorDeliveryRadio.value;
+									deliveryFee = 1000;
+								}
+								else if(pickupDeliveryRadio.checked){
+									deliveryOption = pickupDeliveryRadio.value;
+									deliveryFee = 500;
+								}
+
+								// Save in local storage
+								localStorage.setItem('deliveryOption', JSON.stringify({deliveryOption, deliveryFee}));
+								updateValues();
+
+								// Continue to next tab
+								nextTab();
+
+							}
+						}, {once : true});
+					}
+
+					else if (targetTabId === "#payment") {
+						console.log("Payment condition");
+						const savePaymentOptionBtn = document.getElementById("save-payment-option-btn");
+
+						savePaymentOptionBtn.addEventListener("click", function(event) {
+							console.log("Payment button clicked");
+							event.preventDefault();
+
+							let tabId = targetTabId.replace("#", "");
+							console.log(validateRadioInputs(tabId));
+
+							if(validateRadioInputs(tabId)) {
+								const payNowRadio = document.getElementById("pay-now");
+								const payOnDeliveryRadio = document.getElementById("pay-on-delivery");
+
+								let paymentOption;
+
+								// Set payment option to the value of the checked radio button
+								if(payNowRadio.checked){
+									paymentOption = payNowRadio.value;
+								}
+								else if(payOnDeliveryRadio.checked){
+									paymentOption = payOnDeliveryRadio.value;
+								}
+
+								// Save in local storage
+								localStorage.setItem('paymentMethod', JSON.stringify({paymentOption}));
+								updateValues();
+
+								// Continue to next tab
+								nextTab();
+							}
+						}, {once : true});
+					}
+				}
+
+				// Function to validate form inputs
+				function validateInputs(){
+					let isValid = true;
+					const inputFields = document.querySelectorAll('.form-control');
+
+					inputFields.forEach((inputField) =>{
+						// Retrieve the next element after the input field which is the error message field
+						const errorField = inputField.nextElementSibling;
+						let errorMessage;
+
+						// Check if input is empty and display an error message
+						if(!inputField.checkValidity()) {
+							errorMessage = "Please fill in this field";
+							showError(errorMessage, errorField, inputField);
+							isValid = false;
+						}
+						else{
+							hideError(errorField, inputField);
+						}
+
+						const inputId = inputField.id;
+
+						// Perform other validation checks based on input id
+						switch (inputId) {
+							case "first-name":
+							case "second-name":
+								const nameRegex = /^[A-Za-z]+$/;
+
+								if(!nameRegex.test(inputField.value)){
+									errorMessage = "Please enter a valid name";
+									showError(errorMessage, errorField, inputField);
+									isValid = false;
+								}
+								else{
+									hideError(errorField, inputField);
+								}
+								break;
+							case "email":
+								const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+								if(!emailRegex.test(inputField.value)){
+									errorMessage = "Please enter a valid email address";
+									showError(errorMessage, errorField, inputField);
+									isValid = false;
+								}
+								else{
+									hideError(errorField, inputField);
+								}
+								break;
+							case "phone-number":
+							case "other-phone-number":
+								const phoneRegex = /^\d{10}$/;
+
+								if(!phoneRegex.test(inputField.value)){
+									errorMessage = "Please enter a valid phone number";
+									showError(errorMessage, errorField, inputField);
+									isValid = false;
+								}
+								else{
+									hideError(errorField, inputField);
+								}
+								break;
+							default:
+								//console.log(`No validation checks have been set for ${inputId} yet`);
+						}
+					});
+
+					return isValid;
+
+				}
+
+				// Function to validate radio inputs
+				function validateRadioInputs(tabId) {
+					// Retrieve radio buttons from the specific tab
+					const tabRadioButtons = document.querySelectorAll(`#${tabId} input[type="radio"]`);
+
+					// Retrieve error span field according to tab id
+					const errorField = tabId === "delivery" ? document.getElementById("delivery-option-error") : document.getElementById("payment-option-error");
+
+					let isValid = false;
+
+					tabRadioButtons.forEach((radioButton) => {
+						// Check if at least one button is checked
+						if (radioButton.checked){
+							isValid = true;
+						}
+					});
+
+					// Display error message incase no buttons are checked
+					if(!isValid) {
+						errorField.textContent = "Please select an option";
+						errorField.style.display = 'block';
+					}
+					else {
+						errorField.textContent = "";
+						errorField.style.display = 'none';
+					}
+
+					return isValid;
+				}
+
+				// Function to display error message incase an error occurs
+				function showError(errorMessage, errorField, inputField) {
+					errorField.textContent = errorMessage;
+					errorField.style.display = 'block';
+					inputField.classList.add('error-field');
+				}
+
+				// Function to hide error incase there is no error
+				function hideError(errorField, inputField) {
+					errorField.textContent = "";
+					errorField.style.display = 'none';
+					inputField.classList.remove('error-field');
+				}
+
+				// Function to navigate to the next tab
+				function nextTab() {
+					const currentTab = document.querySelector('[data-bs-toggle="tab"].active-tab');
+					//console.log("Current tab: ", currentTab);
+					const nextTab = currentTab.parentElement.nextElementSibling.querySelector('[data-bs-toggle="tab"]');
+					//console.log("Next tab: ", nextTab);
+
+					if (nextTab) {
+						// Enable tab
+						nextTab.classList.remove('disabled');
+						// Switch to next tab
+						nextTab.click();
+						//updateUrl(nextTab.getAttribute('href'));
+					}
+				}
+
+				// Function to retrieve info from local storage
+				function updateValues() {
+					let total = 0
+					const customerInfo = JSON.parse(localStorage.getItem('customerInfo'));
+					if (customerInfo) {
+						// Assign saved values from local storage item to respective input fields in the customer-info tab (Pre-fill Input fields)
+						document.getElementById("first-name").value = customerInfo.firstName;
+						document.getElementById("second-name").value = customerInfo.secondName;
+						document.getElementById("email").value = customerInfo.email;
+						document.getElementById("phone-number").value = customerInfo.phoneNumber;
+						document.getElementById("other-phone-number").value = customerInfo.additionalNumber;
+						document.getElementById("home-address").value = customerInfo.homeAddress;
+						document.getElementById("additional-address-info").value = customerInfo.additionalAddressInfo;
+						document.getElementById("region").value = customerInfo.region;
+						document.getElementById("city").value = customerInfo.city;
+
+						// Assign saved values from local storage item to elements in the confirm-order tab
+						document.getElementById("customer-name").textContent = `${customerInfo.firstName} ${customerInfo.secondName}`;
+						document.getElementById("customer-email").textContent = customerInfo.email;
+						document.getElementById("customer-phone-number").textContent = customerInfo.phoneNumber;
+						document.getElementById("customer-additional-number").textContent = customerInfo.additionalNumber;
+						document.getElementById("customer-home-address").textContent = customerInfo.homeAddress;
+						document.getElementById("customer-additional-address-info").textContent = customerInfo.additionalAddressInfo;
+						document.getElementById("customer-region").textContent = customerInfo.region;
+						document.getElementById("customer-city").textContent = customerInfo.city;
+					}
+
+					const deliveryInfo = JSON.parse(localStorage.getItem('deliveryOption'));
+					if (deliveryInfo) {
+						// Pre-select the delivery option saved in local storage
+						document.querySelector(`input[value="${deliveryInfo.deliveryOption}"]`).checked = true;
+
+						document.getElementById("delivery-option").textContent = deliveryInfo.deliveryOption;
+						document.getElementById("delivery-fees").textContent = `Ksh ${deliveryInfo.deliveryFee}`;
+						document.getElementById("total-delivery-fee").textContent = `Ksh ${deliveryInfo.deliveryFee}`;
+
+						total += deliveryInfo.deliveryFee;
+					}
+
+					const paymentInfo = JSON.parse(localStorage.getItem('paymentMethod'));
+					if (paymentInfo) {
+						// Pre-select the payment option saved in local storage
+						document.querySelector(`input[value="${paymentInfo.paymentOption}"]`).checked = true;
+
+						document.getElementById("payment-method").textContent = paymentInfo.paymentOption;
+					}
+
+					const summaryInfo = JSON.parse(localStorage.getItem('orderSummary'));
+					if (summaryInfo) {
+						// Assign saved values for order summary
+						document.getElementById("total-items").textContent = summaryInfo.totalItems;
+						document.getElementById("items-sub-total").textContent = `Ksh ${summaryInfo.itemSubTotal}`;
+
+						total += summaryInfo.itemSubTotal;
+						document.getElementById("total-price").textContent = `Ksh ${total}`;
+					}
+				}
+
+				// Function to retrieve and pass parameters to the backend
+				function confirmOrder() {
+					const confirmOrderBtn = document.getElementById("confirm-order-btn");
+
+					confirmOrderBtn.addEventListener("click", function() {
+						console.log("Confirm Order Button clicked");
+
+						// Retrieve information
+						let name = document.getElementById("customer-name").textContent;
+						let email = document.getElementById("customer-email").textContent;
+						let phoneNumber = document.getElementById("customer-phone-number").textContent;
+						let additionalPhoneNumber = document.getElementById("customer-additional-number").textContent;
+						let homeAddress = document.getElementById("customer-home-address").textContent;
+						let additionalAddressInfo = document.getElementById("customer-additional-address-info").textContent;
+						let region = document.getElementById("customer-region").textContent;
+						let city = document.getElementById("customer-city").textContent;
+						let deliveryOption = document.getElementById("delivery-option").textContent;
+						let paymentMethod = document.getElementById("payment-method").textContent;
+						let itemCount = document.getElementById("total-items").textContent;
+						let itemSubTotal = document.getElementById("items-sub-total").textContent;
+						let deliveryFee = document.getElementById("total-delivery-fee").textContent;
+						let total = document.getElementById("total-price").textContent;
+
+						// Remove currency prefix to remain with the integer part of the text
+						itemSubTotal = itemSubTotal.replace("Ksh ", "");
+						deliveryFee = deliveryFee.replace("Ksh ", "");
+						total = total.replace("Ksh ", "");
+
+						// Send ajax request with the retrieved info to the backend
+						$.ajax({
+							url: '../php_scripts/checkout.php',
+							method: 'POST',
+							data: {
+								name: name,
+								email: email,
+								phoneNumber: phoneNumber,
+								additionalPhoneNumber: additionalPhoneNumber,
+								homeAddress: homeAddress,
+								additionalAddressInfo: additionalAddressInfo,
+								region: region,
+								city: city,
+								deliveryOption: deliveryOption,
+								paymentMethod: paymentMethod,
+								itemCount: itemCount,
+								itemSubTotal: itemSubTotal,
+								deliveryFee: deliveryFee,
+								total: total
+							},
+							success: function(response) {
+								console.log(response);
+							},
+							error: function (jqXHR, textStatus, errorThrown) {
+								console.log('AJAX Error:', textStatus, errorThrown);
+							}
+						});
+
+					});
+				}
+
+				updateOrderSummary();
+				updateValues();
+				tabSwitch();
+				confirmOrder();
+
+			});
+		</script>
+
+		<!-- Bootstrap JavaScript Libraries -->
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+			integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+		</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+			integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+		</script>
+	</body>
+
+</html>
