@@ -279,7 +279,7 @@ body#cart-body{
 #cart-items-column, #checkout-info-column{
     background-color: white;
     border-radius: 0.44rem;
-    height: fit-content;
+    height: auto;
 }
 
 .custom-btn{
